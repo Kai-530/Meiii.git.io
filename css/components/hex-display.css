@@ -1,0 +1,45 @@
+/* ============================================================
+   已選海克斯
+   ============================================================ */
+
+/* 已選海克斯顯示區：紫色邊框、發光陰影 */
+.selected-hex-display {
+    background: var(--bg-fortune);
+    border: var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--gap-md);
+    margin-top: var(--gap-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+    position: relative;
+    box-shadow: var(--shadow-glow);
+}
+
+/* 海克斯圖標 */
+.hex-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+/* 關閉偽元素 */
+.selected-hex-display::before { display: none; }
+
+/* 已選海克斯名稱 */
+.selected-hex-display h4 {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 3px;
+}
+
+/* 已選海克斯小圖標 */
+.selected-hex-display .hex-mini-icon {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+/* 已選海克斯描述 */
+.selected-hex-display p {
+    font-size: var(--font-sm);
+    color: #ccc;
+}

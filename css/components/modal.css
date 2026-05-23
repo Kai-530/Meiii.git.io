@@ -1,0 +1,44 @@
+/* ============================================================
+   通用彈窗
+   ============================================================ */
+
+/* 彈窗遮罩：全螢幕半透明黑色背景、置中、預設隱藏 */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--modal-overlay);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 彈窗卡片：深色背景、紫色邊框、圓角、置中 */
+.modal-card {
+    background: var(--modal-bg);
+    border: var(--border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--modal-padding);
+    width: var(--modal-width);
+    max-width: 85vw;
+    text-align: center;
+    box-shadow: var(--shadow-modal);
+}
+
+/* 彈窗內容區：半透明背景、圓角、內邊距 */
+.modal-body {
+    text-align: left;
+    background: var(--bg-fortune);
+    padding: var(--modal-body-padding);
+    border-radius: var(--radius-lg);
+    margin: var(--modal-body-margin);
+    line-height: 2;
+    font-size: var(--font-base);
+}
+
+/* 彈窗標題 */
+#mTitle {
+    font-size: var(--font-3xl);
+    margin-bottom: var(--gap-sm);
+}

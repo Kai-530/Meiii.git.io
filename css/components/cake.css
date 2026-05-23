@@ -1,0 +1,124 @@
+/* ============================================================
+   蛋糕許願區
+   ============================================================ */
+
+/* 蛋糕容器：相對定位，內容置中 */
+.cake-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 蛋糕旁邊的小對話框：固定在螢幕上 */
+.cake-os-bubble {
+    position: fixed;
+    top: 110px;
+    right: calc(50% - 380px);
+    background: rgba(255, 245, 250, 0.9);
+    border: var(--border-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--gap-lg) 28px;
+    box-shadow: 0 8px 25px rgba(255, 179, 217, 0.35);
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 1.5s ease; /* 淡出效果 */ 
+}
+
+/* 對話框文字 */
+.os-text {
+    color: #7b5ea7;
+    font-size: 1.3rem;
+    font-weight: bold;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+/* 對話框小尾巴（三角形） */
+.os-tail {
+    position: absolute;
+    bottom: -12px;
+    left: var(--gap-2xl);
+    width: 0; height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 14px solid #ffb3d9;
+}
+
+/* 對話框尾巴內部（白色三角形覆蓋） */
+.os-tail::after {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: -12px;
+    width: 0; height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 10px solid rgba(255, 245, 250, 0.9);
+}
+
+/* 隱藏時淡出 */
+.cake-os-bubble.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 蛋糕本體 */
+.cake {
+    width: 600px;                          /* 設定大小 */
+    margin: 0px auto;                     /* 控制上下位置 */
+    cursor: pointer;
+    border-radius: var(--cake-radius);
+    transition: var(--transition);
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    border-bottom: none;
+    position: relative;
+    z-index: 2;
+}
+
+.cake img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--cake-radius);
+}
+
+/* 蛋糕  */
+.cake:hover { transform: scale(1.02); }
+
+/* 火焰 */
+.flame {
+    width: var(--flame-width);
+    height: var(--flame-height);
+    background: var(--flame-bg);
+    border-radius: var(--flame-radius);
+    position: absolute;
+    top: 3%;                
+    left: 48%;
+    transform: translateX(-50%);
+    animation: cuteFlicker 0.2s infinite alternate ease-in-out;
+    transition: opacity 4s, transform 4s ease;
+    box-shadow: var(--flame-shadow);
+    z-index: 5;            
+}
+
+/* 火焰吹滅 */
+.flame.blowing {
+    opacity: 0;
+    transform: scale(0.1) translateY(-35px);
+}
+
+/* 蛋糕頁文字：「許願拉」 */
+#cakeMsg {
+    font-size: var(--font-4xl) !important;
+    margin-top: 10px;
+}
+
+/* 前往星球按鈕 */
+#nextBtn {
+    font-size: 1.3rem !important;
+    padding: 10px 30px !important;
+    margin-top: 30px !important; 
+}

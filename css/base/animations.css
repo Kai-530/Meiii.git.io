@@ -1,0 +1,63 @@
+/* ============================================================
+   全站動畫
+   ============================================================ */
+
+/* 頁面切換 */
+@keyframes slideIn {
+    from { opacity: 0; transform: scale(1.05); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* 首頁頭像 */
+@keyframes giftFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-12px); }
+}
+
+/* 海克斯卡片選中 */
+@keyframes hexSelectPulse {
+    to {
+        border-color: #e0c8f8;
+        box-shadow: 0 0 35px rgba(200, 176, 232, 0.7);
+    }
+}
+
+/* 蛋糕對話框 */
+@keyframes osFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+/* 蠟燭火焰 */
+@keyframes cuteFlicker {
+    0%   { transform: scale(1) translateY(0px);    box-shadow: 0 0 12px #ffaa66; }
+    100% { transform: scale(1.06) translateY(-3px); box-shadow: 0 0 25px #ffcc88, 0 0 8px #ffaa66; }
+}
+
+/* 禮物盒 */
+@keyframes giftGlowPanel {
+    0%   { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 5px #ff6b8a; }
+    100% { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 12px #ff4d6d; }
+}
+
+/* 好友在線綠色點點 */
+@keyframes onlinePulse {
+    0%   { opacity: 0.6; transform: scale(0.9); }
+    100% { opacity: 1;   transform: scale(1.1); }
+}
+
+/* 生日當天倒數框呼吸動畫 */
+@keyframes birthday-glow {
+    from {
+        box-shadow: 
+            0 0 10px rgba(163, 138, 255, 0.3),
+            0 0 20px rgba(138, 122, 255, 0.2),
+            0 0 30px rgba(138, 122, 255, 0.1);
+    }
+    to {
+        box-shadow: 
+            0 0 15px rgba(163, 138, 255, 0.5),
+            0 0 25px rgba(138, 122, 255, 0.4),
+            0 0 45px rgba(138, 122, 255, 0.3);
+    }
+}

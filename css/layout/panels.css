@@ -1,0 +1,57 @@
+/* ============================================================
+   三欄佈局 & 面板
+   ============================================================ */
+
+/* 星球頁：內容垂直置中，使左右面板上下間距完全對稱 */
+#pg4 {
+    justify-content: center;
+}
+
+/* 三欄佈局：左 280px | 中 彈性 | 右 280px，水平置中 */
+.pc-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    max-width: 1900px;
+    gap: var(--gap-lg);
+    margin: 0 auto;
+}
+
+/* 電腦：左右面板往外移（適用於桌機版自適應比例） */
+@media screen and (min-width: 1001px) {
+    .panel:first-child {
+        transform: translateX(-500px);
+    }
+
+    .panel:last-child {
+        transform: translateX(500px);
+    }
+}
+
+/* 左右面板：毛玻璃、圓角、紫色邊框、可溢出 */
+.panel {
+    background: var(--bg-panel);
+    border-radius: var(--panel-radius);
+    padding: var(--panel-padding);
+    border: var(--border-panel);
+    backdrop-filter: blur(15px);
+    text-align: left;
+    position: relative;
+    z-index: 100;
+    overflow: visible;
+    min-height: var(--panel-min-height);
+}
+
+/* 面板標題：粉色字、底線分隔 */
+.panel-h {
+    color: var(--secondary);
+    font-size: var(--font-xl);
+    font-weight: bold;
+    margin-bottom: var(--gap-lg);
+    border-bottom: 2px solid #5a4280;
+    padding-bottom: var(--gap-sm);
+}
+
+/* 面板額外標題 */
+.panel-h-extra {
+    margin-top: 20px;
+}

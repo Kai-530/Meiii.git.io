@@ -1,0 +1,108 @@
+/* ============================================================
+   海克斯卡片
+   ============================================================ */
+
+/* 海克斯卡片容器：水平排列、置中、自動換行 */
+.hex-row {
+    display: flex;
+    gap: var(--gap-xl);
+    margin: var(--gap-2xl) 0;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* 海克斯卡片本體：毛玻璃、圓角、垂直排列、置中 */
+.hex-card {
+    background: var(--bg-panel);
+    border: var(--border-card);
+    border-radius: var(--card-radius);
+    padding: var(--hex-padding);
+    width: var(--hex-width);
+    height: var(--hex-height);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* 卡片 hover：上浮 + 粉色邊框 + 發光 */
+.hex-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-card);
+}
+
+/* 卡片點擊：微微縮小 */
+.hex-card:active { transform: scale(0.95); }
+
+/* 海克斯頁標題 */
+.hex-page-title {
+    color: var(--gold-active);
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+}
+
+/* 海克斯名稱 */
+.hex-card h3 {
+    margin-bottom: var(--gap-lg);
+    color: var(--text-white);
+    font-size: var(--hex-title-size);
+    text-align: center;
+    width: 100%;
+}
+
+/* 海克斯描述 */
+.hex-card p {
+    font-size: var(--hex-desc-size);
+    color: #bbb;
+    margin-bottom: var(--gap-lg);
+    text-align: center;
+    width: 100%;
+}
+
+/* 卡片選中狀態：紫色邊框 + 脈動動畫 */
+.hex-card.selected {
+    border: 2.5px solid var(--primary);
+    box-shadow: 0 0 25px rgba(200, 176, 232, 0.5);
+    animation: hexSelectPulse 1s infinite alternate;
+}
+
+/* 刷新按鈕：金色邊框、圓角 */
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--gold-active);
+    color: var(--gold-active);
+    border-radius: var(--radius-lg);
+    padding: var(--gap-sm) var(--gap-lg);
+    cursor: pointer;
+    transition: all var(--transition);
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: var(--gap-xl);
+}
+
+/* 刷新按鈕 hover：金色背景 + 放大 */
+.refresh-btn:hover {
+    background: #e6b800;
+    color: #1f1540;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--gold-active);
+    border-color: var(--text-white);
+}
+
+/* 刷新按鈕點擊：微微縮小 */
+.refresh-btn:active { transform: scale(0.95); }
+
+/* 刷新按鈕已使用：變灰、不可點擊 */
+.refresh-btn.used {
+    opacity: 0.2;
+    cursor: default;
+    color: #555;
+    border-color: #555;
+    pointer-events: none; /* 禁用滑鼠互動，防止多次點擊或 hover 特效 */
+}

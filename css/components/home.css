@@ -1,0 +1,42 @@
+/* ============================================================
+   首頁
+   ============================================================ */
+
+/* 首頁開始按鈕 */
+.btn-start {
+    margin-top: 150px !important;   
+}
+
+   /* 頭像容器 */
+.home-icon {
+    margin-bottom: 0px;
+    animation: giftFloat 4s infinite ease-in-out;
+}
+
+/* 頭像圖片 */
+.home-icon img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 30px rgba(200, 176, 232, 0.5);
+    background: linear-gradient(135deg, #1f1540, #0f0a25);
+    padding: 5px;
+}
+
+/* 首頁標題 */
+.home-title {
+    font-size: 4rem;
+    background: linear-gradient(#fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 首頁副標題 */
+.home-subtitle {
+    letter-spacing: 10px;
+    margin-top: 0px;
+    color: var(--primary);
+}

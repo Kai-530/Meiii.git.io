@@ -1,0 +1,97 @@
+/* ============================================================
+   星球系統
+   ============================================================ */
+
+/* 星系容器：相對定位、置中 */
+.galaxy-center {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    min-height: var(--galaxy-min-height);
+    margin: 0 -20px;
+}
+
+/* 軌道：橢圓形虛線圓環、不可點擊 */
+.orbit {
+    position: absolute;
+    border: 1px solid var(--orbit-border);
+    border-radius: var(--radius-round);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    left: 50%; top: 50%;
+    box-shadow: 0 0 5px rgba(200, 176, 232, 0.1);
+}
+
+/* 主星球 */
+.master-planet {
+    width: var(--planet-size);
+    height: var(--planet-size);
+    border-radius: var(--radius-round);
+    background: linear-gradient(135deg, #1f1540, #0f0a25);
+    border: var(--border-primary);
+    box-shadow: 0 0 60px rgba(180, 140, 240, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    cursor: pointer;
+    transition: var(--transition-slow);
+    position: relative; 
+    margin: 0;
+}
+
+/* 小星球 */
+.friend-planet {
+    position: absolute;
+    width: var(--friend-planet-size);
+    height: var(--friend-planet-size);
+    background: linear-gradient(135deg, #1f1540, #0f0a25);
+    border: var(--border-primary);
+    border-radius: var(--radius-round);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 15px rgba(200, 176, 232, 0.3);
+    backdrop-filter: blur(2px);
+}
+.friend-planet:hover { border-color: var(--gold-active); }
+
+/* 主星球名稱：顯示在星球下方 */
+.master-name {
+    position: absolute;
+    bottom: -32px;
+    font-size: var(--font-md);
+    color: #d0c0f0;
+    white-space: nowrap;
+    font-weight: bold;
+    text-shadow: 0 0 5px #000;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: var(--radius-lg);
+    letter-spacing: 1px;
+}
+
+/* 朋友星球名稱：顯示在星球下方、置中 */
+.friend-name {
+    position: absolute;
+    bottom: -32px;
+    font-size: var(--font-md);
+    color: #d0c0f0;
+    white-space: nowrap;
+    font-weight: bold;
+    text-shadow: 0 0 5px #000;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: var(--radius-lg);
+    letter-spacing: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+}

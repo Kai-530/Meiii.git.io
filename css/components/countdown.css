@@ -1,0 +1,90 @@
+/* ============================================================
+   右上角倒數計時框
+   ============================================================ */
+
+/* 倒數計時容器 */
+.countdown-container {
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    z-index: 150;
+    background: rgba(25, 15, 45, 0.85);
+    border: var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--gap-sm) var(--gap-lg);
+    text-align: center;
+    backdrop-filter: blur(15px);
+    min-width: 240px;
+    box-shadow: var(--shadow-sm);
+    transition: opacity 0.4s ease;
+}
+
+/* 倒數標籤：「距離小獅子生日還剩下」 */
+.countdown-label {
+    font-size: var(--font-md); 
+    color: var(--secondary);
+    letter-spacing: 2px;
+    margin-bottom: var(--gap-xs);
+}
+
+/* 倒數數字 */
+.countdown-timer {
+    font-size: var(--font-2xl);
+    font-weight: 900;
+    color: var(--text-white);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 倒數單位：D、H、M、S */
+.timer-unit {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin: 0 var(--gap-xs);
+}
+
+/* 生日當天添加霓虹粉呼吸及發光特效 */
+.countdown-container.is-birthday {
+    background: rgba(35, 15, 60, 0.92) !important;
+    border: 2px solid #ff8acb !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 
+        0 0 15px rgba(255, 138, 203, 0.5), /* 粉色內微光 */
+        0 0 30px rgba(163, 138, 255, 0.4), /* 紫色中光暈 */
+        0 0 50px rgba(255, 215, 0, 0.2),   /* 金色外霓虹 */
+        inset 0 0 12px rgba(255, 255, 255, 0.1);
+    animation: birthday-glow 2.5s infinite alternate ease-in-out !important;
+}
+
+/* 呼吸動畫 */
+@keyframes birthday-glow {
+    from {
+        box-shadow: 
+            0 0 15px rgba(255, 138, 203, 0.4),
+            0 0 25px rgba(163, 138, 255, 0.3),
+            0 0 40px rgba(255, 215, 0, 0.15),
+            inset 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    to {
+        box-shadow: 
+            0 0 25px rgba(255, 138, 203, 0.7),
+            0 0 45px rgba(163, 138, 255, 0.6),
+            0 0 70px rgba(255, 215, 0, 0.3),
+            inset 0 0 15px rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* 生日當天標題 */
+.is-birthday .countdown-label {
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    color: var(--secondary) !important;
+    letter-spacing: 1px;
+    margin-bottom: var(--gap-xs);
+}
+
+/* 生日當天倒計時祝福 */
+.is-birthday .countdown-timer { 
+    font-size: 1.05rem !important; 
+    font-weight: normal !important; 
+    color: #ffffff !important;
+}

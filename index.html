@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>美小莓之日</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo/logo.png">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <script>
+        if (window.innerWidth <= 1000) {
+            document.documentElement.classList.add('mobile-mode');
+        }
+    </script>
+
+    <div class="mobile-warning">
+        <h2>請使用電腦開啟！</h2>
+        <p>此網站目前僅支援桌面版瀏覽器<br>請使用電腦或筆電觀看完整內容哦~</p>
+    </div>
+
+    <div id="lockScreen" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #0a0e27, #1a1a3e, #0d1117); z-index: 99999; flex-direction: column; align-items: center; justify-content: center; font-family: 'Microsoft YaHei', sans-serif;">
+        <div style="font-size: 80px; margin-bottom: 30px; animation: float 3s ease-in-out infinite;">🔒</div>
+        <div style="font-size: 1.2rem; color: #b0a0c0; margin-bottom: 10px; letter-spacing: 2px;">距離解鎖時間還剩：</div>
+        <div id="lockTimer" style="font-size: 3rem; font-weight: bold; color: #FFD700; margin-bottom: 15px; letter-spacing: 3px;">00D 00H 00M 00S</div>
+        <div style="font-size: 1rem; color: #888; letter-spacing: 1px;">將於 2026 年 8 月 8 日 21:00 解鎖</div>
+    </div>
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        /* 點擊防禦 */
+        button, .hex-card, .planet, a, .master-planet, .friend-planet, .trait-box {
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+    </style>
+
+    <canvas id="starsCanvas"></canvas>
+    <canvas id="effectCanvas"></canvas>
+
+    <div class="countdown-container" id="countdownBox">
+        <div class="countdown-label">距離小獅子生日還剩下</div>
+        <div id="timer" class="countdown-timer">00D 00H 00M 00S</div>
+    </div>
+
+    <section class="screen active" id="pg1">
+        <div class="home-icon"> 
+            <img src="avatar/MeiMei.png" alt="美莓頭像">
+        </div>
+        <h1 class="home-title">Luck game1 #game</h1>
+        <p class="home-subtitle">HAPPY BIRTHDAY MEIMEI</p>
+        <button class="btn-main btn-start" onclick="nav(2)">開始咯 !</button>
+    </section>
+
+    <div id="audioControlContainer" style="position: absolute; top: 160px; right: 60px; z-index: 9999; text-align: center;">
+        <button id="speakerBtn" onclick="toggleFirstSound()" style="font-size: 1.5rem; background: rgba(255,179,217,0.1); border: 2px solid #ff8acb; border-radius: 50%; width: 60px; height: 60px; cursor: pointer; color: #ff8acb; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;">
+            🔊
+        </button>
+    </div>
+    
+    <section class="screen" id="pg2">
+        <button class="btn-back" onclick="nav(1)">返回</button>
+        <h1 class="hex-page-title">選擇海克斯</h1>
+        <div class="hex-row" id="hexContainer"></div>
+        <button id="giftSceneBtn" class="btn-main" style="display:none; margin-top: 20px;" onclick="nav(3)">準備許願嚕</button>
+    </section>
+
+    <section class="screen" id="pg3">
+        <button class="btn-back" onclick="nav(2)">返回</button>
+        <div class="cake-container">
+            <div class="cake-os-bubble" id="cakeOsBubble">
+                <div class="os-text">點我可以吹滅蠟燭唷！</div>
+                <div class="os-tail"></div>
+            </div>
+            <div class="cake" id="cakeObj" onclick="blow()">
+                <img src="cake/zoeCake.png" alt="生日蛋糕" style="width: 100%; height: 100%; object-fit: contain;">
+                <div class="flame" id="flame"></div>
+            </div>
+        </div>
+        <h2 id="cakeMsg">許願拉</h2>
+        <button id="nextBtn" class="btn-main" style="display:none;" onclick="nav(4)">美美登陸星球拉</button>
+    </section>
+
+    <section class="screen" id="pg4">
+        <div class="pc-layout">
+
+            <div class="panel">
+                <p class="panel-h">美美小羈絆</p>
+                
+                <div class="trait-box active">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Leo.png" alt="小獅子">
+                        </div>
+                        <div class="trait-name">小獅子</div>
+                    </div>
+                    <div class="trait-number">1/1</div>
+                    <div class="trait-tooltip">小小美莓</div>
+                </div>
+
+                <div class="trait-box silver">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Gemini.png" alt="小雙子">
+                        </div>
+                        <div class="trait-name">小雙子</div>
+                    </div>
+                    <div class="trait-number">1/2</div>
+                    <div class="trait-tooltip">小小黃楷6</div>
+                </div>
+
+                <div class="trait-box">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Libra.png" alt="小天秤">
+                        </div>
+                        <div class="trait-name">小天秤</div>
+                    </div>
+                    <div class="trait-number">1/3</div>
+                    <div class="trait-tooltip">小小邱婉6</div>
+                </div>
+
+                <div class="trait-box">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Pisces.png" alt="小雙魚">
+                        </div>
+                        <div class="trait-name">小雙魚</div>
+                    </div>
+                    <div class="trait-number">1/3</div>
+                    <div class="trait-tooltip">小小是你好</div>
+                </div>
+
+                <div class="trait-box">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Virgo.png" alt="小處女">
+                        </div>
+                        <div class="trait-name">小處女</div>
+                    </div>
+                    <div class="trait-number">1/3</div>
+                    <div class="trait-tooltip">小小無奈哥</div>
+                </div>
+
+                <p class="panel-h panel-h-extra">美美海克斯</p>
+                <div id="finalHexDisplay"></div>
+
+                <div style="margin-top: 20px;">
+                    <p class="gift-title">美美小神秘</p>
+                    <div style="text-align: center;">
+                        <div class="gift-section-panel" id="randomGiftPanel" onclick="openRandomGift()">
+                            <div class="gift-box-panel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galaxy-center" id="galaxy">
+                <div class="master-planet" id="planet" onclick="showMaster()" style="position: relative;">
+                    <img id="masterPlanetImg"
+     src="avatar/MeiMei.png"
+     style="
+        width:140px;
+        height:140px;
+        border-radius:50%;
+        object-fit:cover;
+     ">
+                    <div class="master-name">Luck game1</div>
+                </div>
+                <button class="btn-main btn-home-planet" onclick="nav(1); forceRefreshHex()">返回首頁</button>
+            </div>
+
+            <div class="panel">
+                <p class="panel-h">美美吉不吉</p>
+                <div class="fortune-card">
+                    <div class="fortune-flip-card" id="fortuneFlip">
+                        <div class="fortune-face fortune-front">
+                            <div class="fortune-preview">今天運勢如何呢？</div>
+                        </div>
+                        <div class="fortune-face fortune-back" id="fortuneBack">
+    <div class="ball-color" id="ballColor"></div>
+    <div class="ball-text" id="ballText"></div>
+    <div class="fortune-text-group">
+        <div class="ball-message" id="ballMessage"></div>
+    </div>
+</div>
+                    </div>
+                    <button class="lottery-btn" onclick="drawLottery()">翻開今日運勢</button>
+                </div>
+
+                <div class="friends-section">
+                    <p class="panel-h">美美好友列</p>
+                    <div class="friends-list">
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/MeiMei.png" alt="Luck game1">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">Luck game1</div>
+                            </div>
+                            <div class="friend-tooltip">=))</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/hkr.png" alt="SerendiPityuu">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">SerendiPityuu</div>
+                            </div>
+                            <div class="friend-tooltip">=)))</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/wyb.jpg" alt="專業送頭AD">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">專業送頭AD</div>
+                            </div>
+                            <div class="friend-tooltip">我就爛</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/qwr.jpg" alt="生椰抹茶拿鐵">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">生椰抹茶拿鐵</div>
+                            </div>
+                            <div class="friend-tooltip">我超強</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/slh.png" alt="Sihao">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">Sihao</div>
+                            </div>
+                            <div class="friend-tooltip">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal" id="modal" onclick="this.style.display='none'">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <h2 id="mTitle" style="color:var(--gold-active);"></h2>
+            <div id="mBody" class="modal-body"></div>
+            <div id="modalBtnArea"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

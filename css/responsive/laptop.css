@@ -1,0 +1,39 @@
+/* ============================================================
+   筆電自適應 - 已改由 js/responsive/resize.js 自動偵測動態縮放
+   ============================================================ */
+
+/* ============================================================
+   共通彈窗 + 鎖屏
+   ============================================================ */
+@media screen and (max-width: 1800px) {
+    /* ✅ 鎖屏填滿整個螢幕 */
+    #lockScreen[style*="display: flex"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+}
+
+
+
+    .countdown-container {
+        top: 50px;
+        right: 50px;
+        padding: 16px 20px;
+        min-width: 200px;
+    }
+    .countdown-label { font-size: 1.1rem; }
+    .countdown-timer { font-size: 1.3rem; }
+
+    .btn-back {
+        top: 50px;
+        left: 50px;
+        padding: 14px 16px;
+        font-size: 1.1rem;
+    }
+    .btn-home-planet {
+        padding: 16px 24px;
+        font-size: 1rem;
+    }
+}

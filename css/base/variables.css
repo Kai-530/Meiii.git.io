@@ -1,0 +1,132 @@
+/* ============================================================
+   全域變數
+   ============================================================ */
+:root {
+    /* ── 主色調 ── */
+    --primary: #c8b0e8;
+    --secondary: #ffb3d9;
+    --bg-dark: #050510;
+    --panel-bg: rgba(20, 10, 45, 0.6);
+    --gold-active: #ffd700;
+    --silver: #c0c0c0;
+
+    /* ── 文字顏色 ── */
+    --text-main: #e0d8f0;
+    --text-light: #ddd;
+    --text-muted: #b0a0c0;
+    --text-dim: #666;
+    --text-white: #fff;
+    --text-pink: #ffb3d9;
+
+    /* ── 按鈕 ── */
+    --btn-gradient: linear-gradient(180deg, #7b5ea7, #4a2080);
+    --btn-border: #c8b0e8;
+    --btn-hover-border: #fff;
+    --btn-shadow: rgba(200, 170, 240, 0.3);
+    --btn-padding: 14px 40px;
+    --btn-radius: 50px;
+    --btn-font: 1.1rem;
+
+    /* ── 卡片 ── */
+    --card-bg: rgba(30, 20, 50, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-hover-border: #ffb3d9;
+    --card-radius: 30px;
+
+    /* ── 海克斯卡片 ── */
+    --hex-width: 350px;
+    --hex-height: 500px;
+    --hex-padding: 40px 30px;
+    --hex-img-size: 150px;
+    --hex-title-size: 1.5rem;
+    --hex-desc-size: 1rem;
+
+    /* ── 火焰 ── */
+    --flame-width: 26px;
+    --flame-height: 36px;
+    --flame-bg: radial-gradient(ellipse at 35% 35%, #fff9e0 0%, #ffdd99 25%, #ffaa66 55%, #ff8844 85%);
+    --flame-shadow: 0 0 18px #ffaa66, 0 0 8px #ffcc88;
+    --flame-radius: 50% 50% 45% 45%;
+    --flame-top: -30px;
+
+    /* ── 星球 ── */
+    --planet-size: 170px;
+    --planet-border: #c8b0e8;
+    --friend-planet-size: 67px;
+    --orbit-border: rgba(200, 176, 232, 0.25);
+    --galaxy-min-height: 550px;
+
+    /* ── 面板 ── */
+    --panel-radius: 30px;
+    --panel-padding: 25px;
+    --panel-min-height: 830px;
+    --panel-border: rgba(200, 170, 240, 0.2);
+
+    /* ── 彈窗 ── */
+    --modal-width: 500px;
+    --modal-padding: 40px 45px;
+    --modal-bg: #120a22;
+    --modal-overlay: rgba(0, 0, 0, 0.85);
+    --modal-body-padding: 25px 30px;
+    --modal-body-margin: 20px;
+
+    /* ── 間距 ── */
+    --gap-xs: 5px;
+    --gap-sm: 10px;
+    --gap-md: 15px;
+    --gap-lg: 20px;
+    --gap-xl: 30px;
+    --gap-2xl: 40px;
+
+    /* ── 圓角 ── */
+    --radius-sm: 12px;
+    --radius-md: 15px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+    --radius-round: 50%;
+    --radius-btn: 50px;
+
+    /* ── 字體大小 ── */
+    --font-xs: 0.65rem;
+    --font-sm: 0.75rem;
+    --font-md: 0.85rem;
+    --font-base: 0.95rem;
+    --font-lg: 1.1rem;
+    --font-xl: 1.2rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.8rem;
+    --font-4xl: 2.4rem;
+    --font-5xl: 2.8rem;
+    --font-6xl: 4rem;
+
+    /* ── 過渡動畫時間 ── */
+    --transition-fast: 0.2s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-slower: 0.8s ease;
+
+    /* ── 陰影 ── */
+    --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.5);
+    --shadow-btn: 0 0 25px var(--btn-shadow);
+    --shadow-btn-hover: 0 10px 40px var(--primary);
+    --shadow-modal: 0 0 50px rgba(0, 0, 0, 0.8);
+    --shadow-glow: 0 0 15px rgba(200, 176, 232, 0.3);
+    --shadow-card: 0 0 30px rgba(200, 170, 240, 0.3);
+    --shadow-cake: 0 25px 45px rgba(0, 0, 0, 0.35), inset 0 3px 10px rgba(255, 255, 255, 0.6);
+
+    /* ── 邊框 ── */
+    --border-primary: 2px solid var(--primary);
+    --border-secondary: 2px solid var(--secondary);
+    --border-gold: 2px solid var(--gold-active);
+    --border-card: 2px solid rgba(255, 255, 255, 0.1);
+    --border-panel: 1px solid var(--panel-border);
+
+    /* ── 背景 ── */
+    --bg-panel: var(--panel-bg);
+    --bg-card: var(--card-bg);
+    --bg-trait: rgba(0, 0, 0, 0.3);
+    --bg-trait-hover: rgba(255, 255, 255, 0.1);
+    --bg-tooltip: rgba(30, 15, 50, 0.95);
+    --bg-modal: var(--modal-bg);
+    --bg-fortune: rgba(255, 255, 255, 0.05);
+}

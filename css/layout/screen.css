@@ -1,0 +1,23 @@
+/* ============================================================
+   頁面切換動畫 - 控制所有頁面的顯示/隱藏和進場效果
+   ============================================================ */
+
+/* 每個頁面：用 absolute 讓所有頁面重疊在同一層，靠 display 切換 */
+.screen {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: var(--gap-2xl);
+    text-align: center;
+}
+
+/* 當前顯示的頁面 */
+.screen.active {
+    display: flex;
+    animation: slideIn var(--transition-slower) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

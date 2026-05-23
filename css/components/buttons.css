@@ -1,0 +1,70 @@
+/* ============================================================
+   通用按鈕
+   ============================================================ */
+
+/* 首頁開始按鈕 */
+.btn-start {
+    margin-top: 150px;
+}
+
+/* 主要按鈕：紫色漸層、圓角、發光陰影 */
+.btn-main {
+    padding: var(--btn-padding);
+    font-size: var(--btn-font);
+    font-weight: bold;
+    border-radius: var(--btn-radius);
+    border: var(--border-primary);
+    background: var(--btn-gradient);
+    color: var(--text-white);
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 2px;
+    box-shadow: var(--shadow-btn);
+    margin-top: var(--gap-lg);
+}
+
+/* 主要按鈕 hover：上浮 + 加強光暈 + 邊框變白 */
+.btn-main:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-btn-hover);
+    border-color: var(--btn-hover-border);
+}
+
+/* 左上角返回按鈕（與倒數計時框對稱） */
+.btn-back {
+    position: fixed;
+    top: 60px;
+    left: 60px;
+    z-index: 150;
+    background: rgba(25, 15, 45, 0.85);
+    border: var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--gap-sm) var(--gap-lg);
+    font-size: var(--font-lg);
+    font-weight: bold;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 2px;
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-back:hover {
+    transform: translateY(-3px);
+    border-color: var(--btn-hover-border);
+    box-shadow: var(--shadow-btn-hover);
+}
+
+/* 返回首頁按鈕：固定在星球區域底部中央 */
+.btn-home-planet {
+    position: absolute;
+    bottom: 0px;
+    left: 0; right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 70;
+    white-space: nowrap;
+    padding: var(--gap-sm) var(--gap-xl);
+    font-size: var(--font-base);
+}

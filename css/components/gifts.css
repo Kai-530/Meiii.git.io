@@ -1,0 +1,75 @@
+/* ============================================================
+   禮物區塊
+   ============================================================ */
+
+/* 禮物標題 */
+.gift-title {
+    color: var(--secondary);
+    font-size: var(--font-xl);
+    font-weight: bold;
+    margin-bottom: var(--gap-lg);
+    border-bottom: 2px solid #5a4280;
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* 禮物點擊區域：固定大小、鼠標手勢 */
+.gift-section-panel {
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    width: 80px; height: 80px;
+    text-align: center;
+}
+
+/* 禮物打開後的圖片：填滿、圓角、紫色邊框 */
+.gift-section-panel img {
+    width: 80px; height: 80px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: var(--border-primary);
+    box-shadow: 0 0 15px rgba(200, 176, 232, 0.5);
+}
+.gift-section-panel:hover { transform: scale(1.02); }
+
+/* 禮物盒本體：粉紅漸層、光暈呼吸動畫 */
+.gift-box-panel {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #ff6b8a, #ff4d6d);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    position: relative;
+    margin: 0 auto;
+    animation: giftGlowPanel 2s infinite alternate;
+}
+
+/* 禮物盒 hover：放大 + 加強陰影 */
+.gift-box-panel:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 禮物盒緞帶：橫向 */
+.gift-box-panel::before {
+    content: '';
+    position: absolute;
+    width: 100%; height: 12px;
+    background: #ffd966;
+    top: 50%; transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* 禮物盒緞帶：縱向 */
+.gift-box-panel::after {
+    content: '';
+    position: absolute;
+    width: 12px; height: 100%;
+    background: #ffd966;
+    left: 50%; transform: translateX(-50%);
+    z-index: 2;
+}

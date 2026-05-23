@@ -1,0 +1,43 @@
+/* ============================================================
+   手機版阻擋 - 小於 1000px 螢幕時顯示提示，隱藏所有內容
+   ============================================================ */
+
+/* 預設隱藏手機提示 */
+.mobile-warning {
+    display: none;
+}
+
+/* 手機模式時顯示提示（滿版置中） */
+.mobile-mode .mobile-warning {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 99999999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: #0b0618;
+    color: white;
+}
+
+/* 手機模式時隱藏畫布和倒數計時 */
+.mobile-mode canvas,
+.mobile-mode .countdown-container {
+    display: none !important;
+}
+
+/* 手機提示標題（粉色大字） */
+.mobile-warning h2 {
+    font-size: 2rem;
+    margin-bottom: var(--gap-lg);
+    color: var(--text-pink);
+}
+
+/* 手機提示內文 */
+.mobile-warning p {
+    font-size: var(--font-lg);
+    line-height: 1.8;
+    color: var(--text-light);
+}
