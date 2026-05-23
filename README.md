@@ -52,7 +52,6 @@
 
 ## 🗺️ 頁面流程
 
-```
 | Page 1 | → | Page 2 | → | Page 3 | → | Page 4 |
 |:------:|:-:|:------:|:-:|:------:|:-:|:------:|
 |  <small>首頁</small> | |  <small>海克斯選擇</small> | |  <small>蛋糕許願</small> | |  <small>星球祝福</small> |
@@ -60,7 +59,6 @@
 | <small>開始咯 !</small> | | <small>每張可刷1次</small> | | <small>3秒倒數</small> | | <small>中：星球軌道</small> |
 |  喇叭開關 | | <small>確認後鎖定</small> | | <small>粒子特效</small> | | <small>右：運勢+好友</small> |
 | |  <small>返回</small> | |  <small>返回</small> | |  <small>返回</small> | |
-```
 
 ---
 
