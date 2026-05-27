@@ -3,7 +3,7 @@
 // ============================================================
 
 // 測試開關：true = 現在就解鎖 / false = 等到 2026/8/8 23:59
-const isTestMode = false;
+const isTestMode = true;
 
 function updateCountdown() {
     const now = new Date(); 
