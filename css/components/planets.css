@@ -44,6 +44,11 @@
     margin: 0;
     transform: translateY(-35px);
 }
+.master-planet:hover {
+    transform: translateY(-35px) scale(1.05);
+    box-shadow: 0 0 85px rgba(180, 140, 240, 0.95);
+    filter: brightness(1.1);
+}
 
 /* 小星球 */
 .friend-planet {
