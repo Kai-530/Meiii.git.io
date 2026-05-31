@@ -184,7 +184,7 @@ function initGalaxy() {
         },
         { n: "生椰抹茶拿鐵", img: "avatar/qwr.png", zodiac: "♎", msg: "<img src='blessings/qwr.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.085, rx: 400, ry: 260, audio: "audio/friendBless/qwr.mp3", v: 0.4 },
         { n: "專業送頭AD", img: "avatar/wyb.png", zodiac: "♍", msg: "<img src='blessings/wyb.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.07, rx: 500, ry: 320, audio: "audio/friendBless/wyb.mp3" },
-        { n: "Sihao", img: "avatar/slh.jpg", zodiac: "♓", msg: "<img src='blessings/slh.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.06, rx: 600, ry: 380, audio: "audio/friendBless/slh.mp3", v: 0.3 },
+        { n: "Sihao", img: "avatar/slh.png", zodiac: "♓", msg: "<img src='blessings/slh.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.06, rx: 600, ry: 380, audio: "audio/friendBless/slh.mp3", v: 0.3 },
     ];
 
     friendsData.forEach((f) => {
@@ -319,7 +319,7 @@ function showMaster() {
 
         '<div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 15px; text-align: left; align-items: stretch; width: 100%; box-sizing: border-box;">' +
 
-            // ✅ 左欄：牌位輪播
+            // 左欄：牌位輪播
             '<div style="display: flex; flex-direction: column; justify-content: flex-start; width: 100%;">' +
                 '<div style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px; width: 100%; height: 100%; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden;">' +
                     '<div style="color: #ff8acb; font-weight: bold; font-size: 0.85rem; border-left: 3px solid #ff8acb; padding-left: 8px; letter-spacing: 1px; margin-bottom: 6px;">小小爬山</div>' +
@@ -378,7 +378,7 @@ function showMaster() {
                 '</div>' +
             '</div>' +
 
-            // ✅ 右欄：截圖
+            // 右欄：截圖
             '<div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; justify-content: flex-start; box-sizing: border-box; height: 100%; width: 100%;">' +
                 '<div style="color: #ff8acb; font-weight: bold; font-size: 0.85rem; border-left: 3px solid #ff8acb; padding-left: 8px; letter-spacing: 1px; margin-bottom: 6px;">小小喀擦</div>' +
                 '<div style="display: flex; flex-direction: column; justify-content: center; flex-grow: 1; width: 100%; overflow: hidden;">' +
