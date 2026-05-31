@@ -42,6 +42,7 @@
     transition: var(--transition-slow);
     position: relative; 
     margin: 0;
+    transform: translateY(-35px);
 }
 
 /* 小星球 */
@@ -67,8 +68,8 @@
 /* 主星球名稱：顯示在星球下方 */
 .master-name {
     position: absolute;
-    bottom: -32px;
-    font-size: var(--font-md);
+    bottom: -45px;
+    font-size: var(--font-lg);
     color: #d0c0f0;
     white-space: nowrap;
     font-weight: bold;
