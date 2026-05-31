@@ -182,9 +182,9 @@ function initGalaxy() {
             s: 0.1, rx: 300, ry: 200, v: 0.3,
             audio: "audio/friendBless/hkr.mp3" 
         },
-        { n: "生椰抹茶拿鐵", img: "avatar/qwr.jpg", zodiac: "♎", msg: "<img src='blessings/qwr.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.085, rx: 400, ry: 260, audio: "audio/friendBless/qwr.mp3", v: 0.4 },
-        { n: "專業送頭AD", img: "avatar/wyb.jpg", zodiac: "♍", msg: "<img src='blessings/wyb.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.07, rx: 500, ry: 320, audio: "audio/friendBless/wyb.mp3" },
-        { n: "Sihao", img: "avatar/slh.png", zodiac: "♓", msg: "<img src='blessings/slh.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.06, rx: 600, ry: 380, audio: "audio/friendBless/slh.mp3", v: 0.3 },
+        { n: "生椰抹茶拿鐵", img: "avatar/qwr.png", zodiac: "♎", msg: "<img src='blessings/qwr.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.085, rx: 400, ry: 260, audio: "audio/friendBless/qwr.mp3", v: 0.4 },
+        { n: "專業送頭AD", img: "avatar/wyb.png", zodiac: "♍", msg: "<img src='blessings/wyb.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.07, rx: 500, ry: 320, audio: "audio/friendBless/wyb.mp3" },
+        { n: "Sihao", img: "avatar/slh.jpg", zodiac: "♓", msg: "<img src='blessings/slh.jpg' style='width: 250px; height: 250px; object-fit: contain; border-radius: 20px;'>", s: 0.06, rx: 600, ry: 380, audio: "audio/friendBless/slh.mp3", v: 0.3 },
     ];
 
     friendsData.forEach((f) => {
