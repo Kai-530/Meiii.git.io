@@ -289,7 +289,7 @@ function showMaster() {
     document.getElementById('mTitle').innerHTML = `
         <div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 2px 0; width: 100%;">
             <img src="avatar/MeiMei.png" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-active); box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);">
-            <div style="font-size: 1.25rem; font-weight: bold; color: var(--secondary); letter-spacing: 0.5px;">Luck game1 #game</div>
+            <div style="font-size: 1.25rem; font-weight: bold; color: var(--secondary); letter-spacing: 0.5px;">櫻花風美莓拿鐵 #8899</div>
         </div>
     `;
     
