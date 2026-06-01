@@ -37,6 +37,15 @@ function forceRefreshHex() {
 
 // 初始化海克斯系統：從卡池抽 3 張顯示
 function initHexSystem() {
+    // 如果已經初始化過且已有顯示的 3 張海克斯，就直接還原渲染，不做任何重置
+    if (activeHex && activeHex.length === 3) {
+        renderHex();
+        if (hexLocked) {
+            lockAllHexCards();
+        }
+        return;
+    }
+
     if (pool.length < 3) forceRefreshHex();
     activeHex = pool.slice(0, 3);           // 取前 3 張
     remainingPool = pool.slice(3);          // 剩下 7 張可刷新
@@ -73,6 +82,11 @@ function renderHex() {
         card.onclick = (function(idx, data) {
             return function() { selectHex(idx, data); };
         })(i, d);
+
+        // 還原被選中卡片的樣式
+        if (userSelectedHex && userSelectedHex.t === d.t) {
+            card.classList.add('selected');
+        }
 
         container.appendChild(card);
     });
@@ -210,4 +224,13 @@ function updateFinalHexUI() {
     } else {
         display.innerHTML = `<p style="font-size:0.8rem; color:#666;">尚未選取海克斯，請回首頁重新選擇...</p>`;
     }
+}
+
+// 重置海克斯系統狀態（回到首頁時使用）
+function resetHexSystem() {
+    activeHex = [];
+    userSelectedHex = null;
+    hexLocked = false;
+    refreshUsed = [false, false, false];
+    forceRefreshHex();
 }
