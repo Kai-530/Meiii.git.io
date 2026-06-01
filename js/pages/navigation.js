@@ -108,10 +108,13 @@ function nav(id) {
         updateFinalHexUI();
     }
 
-    // 回到首頁 → 重置運勢 + 重置神秘禮物
+    // 回到首頁 → 重置運勢 + 重置神秘禮物 + 重置海克斯卡池與選中狀態
     if (id === 1) {
         resetFortune();
         resetGift();
+        if (typeof resetHexSystem === 'function') {
+            resetHexSystem();
+        }
     }
 
     // 進入蛋糕頁或回到首頁 → 重置蛋糕狀態
