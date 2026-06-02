@@ -17,7 +17,7 @@ function drawLottery() {
 
     if (!canDraw) {
         if (typeof pop === 'function') {
-            pop("📢 提醒", "今天已經翻過牌啦！但可以重整再試一次哦～");
+            pop("提醒：", "今天已經翻過牌啦！但可以重整再試一次哦～");
         }
         return;
     }
@@ -42,7 +42,7 @@ function drawLottery() {
     const modalEl = document.getElementById('modal');
 
     if (modalTitle && modalBody && modalBtnArea && modalEl) {
-        modalTitle.innerText = "✨ 運來運來 ✨";
+        modalTitle.innerText = "運來運來！";
         modalBody.innerHTML = `
             <div style="text-align: center; padding: 10px 0;">
                 <!-- 彈窗內的翻牌動畫 -->
