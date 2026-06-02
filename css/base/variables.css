@@ -23,9 +23,9 @@
     --btn-border: #c8b0e8;
     --btn-hover-border: #fff;
     --btn-shadow: rgba(200, 170, 240, 0.3);
-    --btn-padding: 14px 40px;
+    --btn-padding: 10px 28px;
     --btn-radius: 50px;
-    --btn-font: 1.1rem;
+    --btn-font: 0.95rem;
 
     /* ── 卡片 ── */
     --card-bg: rgba(30, 20, 50, 0.7);
