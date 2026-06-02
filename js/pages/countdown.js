@@ -27,7 +27,7 @@ function updateCountdown() {
             lockTimer.innerHTML = `${d}<span class="timer-unit">D</span>${pad(h)}<span class="timer-unit">H</span>${pad(m)}<span class="timer-unit">M</span>${pad(s)}<span class="timer-unit">S</span>`;
         }
 
-        // 鬧鐘指針旋轉邏輯（小時與分鐘，加入小數使指針滑行更順暢）
+        // 鬧鐘指針旋轉邏輯
         const hourHand = document.getElementById('clockHourHand');
         const minHand = document.getElementById('clockMinHand');
         if (hourHand) {
@@ -62,9 +62,9 @@ function updateCountdown() {
             countdownBoxEl.removeAttribute('title');
         }
         
-        if (labelEl) labelEl.innerHTML = "🎉 HAPPY BIRTHDAY 🎉";
+        if (labelEl) labelEl.innerHTML = "耶耶耶！生日快樂呀美莓～";
         if (timerEl) {
-            timerEl.innerHTML = "生日快樂呀美莓！";
+            timerEl.innerHTML = "Happyyyyyyyyy!";
         }
         return; 
     }
