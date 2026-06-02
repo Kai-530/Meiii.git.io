@@ -2,7 +2,12 @@
    通用按鈕
    ============================================================ */
 
-/* 首頁開始按鈕 */
+/* 首頁開始按鈕與換頁導航按鈕：大一號，尺寸統一一致 */
+.btn-start, #giftSceneBtn, #nextBtn {
+    padding: 12px 34px !important;
+    font-size: 1.05rem !important;
+}
+
 .btn-start {
     margin-top: 150px;
 }
