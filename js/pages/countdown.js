@@ -12,7 +12,7 @@ function updateCountdown() {
     const currentYear = now.getFullYear();
 
     // 鎖屏：2026年8月8日 21:00
-    const unlockDate = new Date(2026, 7, 8, 23, 59, 0);
+    const unlockDate = new Date(2026, 7, 9, 0, 0, 0);
     const lockScreen = document.getElementById('lockScreen');
 
     // 如果鎖屏元素存在且測試模式關閉 + 時間未到 → 顯示鎖屏
