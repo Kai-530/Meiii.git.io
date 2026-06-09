@@ -3,7 +3,9 @@
 // ============================================================
 
 // 測試開關：true = 現在就解鎖 / false = 等到 2026/8/8 23:59
-const isTestMode = true;
+// 支援透過 URL 參數 ?test=true 或 ?bypass=true 強制進入測試解鎖模式
+const urlParams = new URLSearchParams(window.location.search);
+const isTestMode = urlParams.get('test') === 'true' || urlParams.get('bypass') === 'true';
 
 function updateCountdown() {
     const now = new Date(); 
@@ -42,8 +44,9 @@ function updateCountdown() {
         return;
     }
 
-    // 隱藏鎖屏
+    // 隱藏鎖屏，並移除同步鎖定樣式類別，防止干擾後續頁面
     if (lockScreen) lockScreen.style.display = 'none';
+    document.documentElement.classList.remove('is-locked');
 
     const timerEl = document.getElementById('timer');
     const labelEl = document.querySelector('.countdown-label');
