@@ -13,6 +13,17 @@
         if (window.innerWidth <= 1000) {
             document.documentElement.classList.add('mobile-mode');
         }
+        
+        // 同步檢查鎖屏狀態，防止首頁閃爍
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isTest = urlParams.get('test') === 'true' || urlParams.get('bypass') === 'true';
+            const now = new Date();
+            const unlockDate = new Date(2026, 7, 8, 23, 59, 0); // 2026/8/8 23:59
+            if (!isTest && now < unlockDate) {
+                document.documentElement.classList.add('is-locked');
+            }
+        })();
     </script>
 
     <div class="mobile-warning">
@@ -88,6 +99,11 @@
     </div>
 
     <style>
+        /* 當鎖定模式啟用時，強制將鎖屏設定為顯示，避免 JavaScript 載入前的首頁閃爍 */
+        html.is-locked #lockScreen {
+            display: flex !important;
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
