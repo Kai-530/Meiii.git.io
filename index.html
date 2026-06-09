@@ -19,7 +19,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const isTest = urlParams.get('test') === 'true' || urlParams.get('bypass') === 'true';
             const now = new Date();
-            const unlockDate = new Date(2026, 7, 8, 23, 59, 0); // 2026/8/8 23:59
+            const unlockDate = new Date(2026, 7, 9, 0, 0, 0); // 2026/8/9 00:00
             if (!isTest && now < unlockDate) {
                 document.documentElement.classList.add('is-locked');
             }
@@ -94,7 +94,7 @@
             </svg>
             <div style="font-size: 1.15rem; color: #b0a0c0; margin-bottom: 8px; letter-spacing: 2px; z-index: 5;">距離解鎖時間還剩：</div>
             <div id="lockTimer" style="font-size: 2.8rem; font-weight: bold; color: #FFD700; margin-bottom: 12px; letter-spacing: 2px; z-index: 5;">00D 00H 00M 00S</div>
-            <div style="font-size: 0.95rem; color: #777; letter-spacing: 1px; z-index: 5;">將於 2026 年 8 月 8 日 23:59 解鎖</div>
+            <div style="font-size: 0.95rem; color: #777; letter-spacing: 1px; z-index: 5;">將於 2026 年 8 月 9 日 00 : 00 解鎖</div>
         </div>
     </div>
 
