@@ -34,7 +34,7 @@
     <!-- 鎖屏 -->
     <div id="lockScreen" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #0a0e27, #1a1a3e, #0d1117); z-index: 99999; flex-direction: column; align-items: center; justify-content: center; font-family: 'Microsoft YaHei', sans-serif;">
         <!-- 黑色圓形毛玻璃遮罩 -->
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 560px; height: 560px; border-radius: 50%; background: linear-gradient(135deg, rgba(12, 6, 28, 0.75), rgba(5, 3, 15, 0.6), rgba(30, 10, 48, 0.75)); background-size: 200% 200%; animation: cosmic-flow 10s ease infinite, lock-circle-pulse 4s ease-in-out infinite; backdrop-filter: blur(25px); border: 1px solid rgba(200, 176, 232, 0.15); padding: 40px; box-sizing: border-box; text-align: center; position: relative; overflow: hidden;">
+        <div id="lockCircle" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 560px; height: 560px; border-radius: 50%; background: linear-gradient(135deg, rgba(12, 6, 28, 0.75), rgba(5, 3, 15, 0.6), rgba(30, 10, 48, 0.75)); background-size: 200% 200%; animation: cosmic-flow 10s ease infinite, lock-circle-pulse 4s ease-in-out infinite; backdrop-filter: blur(25px); border: 1px solid rgba(200, 176, 232, 0.15); padding: 40px; box-sizing: border-box; text-align: center; position: relative; overflow: hidden;">
             <!-- 小星星 -->
             <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.3; border-radius: 50%; top: 12%; left: 20%; pointer-events: none;"></div>
             <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.15; border-radius: 50%; top: 15%; left: 55%; pointer-events: none;"></div>
@@ -102,6 +102,36 @@
         /* 當鎖定模式啟用時，強制將鎖屏設定為顯示，避免 JavaScript 載入前的首頁閃爍 */
         html.is-locked #lockScreen {
             display: flex !important;
+        }
+
+        /* 最後 10 秒倒數震動與發光加速特效 */
+        #lockCircle.shaking {
+            animation: cosmic-flow 10s ease infinite, lock-circle-pulse 1s ease-in-out infinite, lock-shake 1s ease-in-out infinite !important;
+            border-color: rgba(255, 59, 48, 0.4) !important;
+        }
+
+        #lockCircle.shaking #lockTimer {
+            color: #ff3b30 !important;
+            text-shadow: 0 0 20px rgba(255, 59, 48, 0.9), 0 0 40px rgba(255, 59, 48, 0.5);
+            animation: timer-pop 0.5s ease-in-out infinite alternate !important;
+        }
+
+        #lockCircle.shaking svg {
+            filter: drop-shadow(0 0 25px rgba(255, 59, 48, 0.85)) !important;
+            stroke: #ff3b30 !important;
+        }
+
+        @keyframes lock-shake {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-1px, 0.5px) rotate(-0.1deg); }
+            40% { transform: translate(0.8px, -0.5px) rotate(0.1deg); }
+            60% { transform: translate(-0.5px, -0.8px) rotate(-0.05deg); }
+            80% { transform: translate(0.8px, 0.8px) rotate(0.05deg); }
+        }
+
+        @keyframes timer-pop {
+            from { transform: scale(1); }
+            to { transform: scale(1.06); }
         }
 
         @keyframes float {
