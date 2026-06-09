@@ -2,7 +2,7 @@
 // 倒數計時（8月9日）+ 鎖定
 // ============================================================
 
-// 測試開關：true = 現在就解鎖 / false = 等到 2026/8/8 23:59
+// 測試開關：true = 現在就解鎖 / false = 等到 2026/8/9 00:00
 // 支援透過 URL 參數 ?test=true 或 ?bypass=true 強制進入測試解鎖模式
 const urlParams = new URLSearchParams(window.location.search);
 const isTestMode = urlParams.get('test') === 'true' || urlParams.get('bypass') === 'true';
@@ -11,7 +11,7 @@ function updateCountdown() {
     const now = new Date(); 
     const currentYear = now.getFullYear();
 
-    // 鎖屏：2026年8月8日 21:00
+    // 鎖屏：2026年8月9日 00:00
     const unlockDate = new Date(2026, 7, 9, 0, 0, 0);
     const lockScreen = document.getElementById('lockScreen');
 
