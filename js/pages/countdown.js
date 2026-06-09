@@ -19,6 +19,17 @@ function updateCountdown() {
     if (lockScreen && !isTestMode && now < unlockDate) {
         lockScreen.style.display = 'flex';
         const diff = unlockDate - now;
+
+        // 倒數最後 10 秒（10000 毫秒）加上震動與發光加速特效
+        const lockCircle = document.getElementById('lockCircle');
+        if (lockCircle) {
+            if (diff <= 10000) {
+                lockCircle.classList.add('shaking');
+            } else {
+                lockCircle.classList.remove('shaking');
+            }
+        }
+
         const d = Math.floor(diff / 86400000);
         const h = Math.floor((diff / 3600000) % 24);
         const m = Math.floor((diff / 60000) % 60);
@@ -44,9 +55,11 @@ function updateCountdown() {
         return;
     }
 
-    // 隱藏鎖屏，並移除同步鎖定樣式類別，防止干擾後續頁面
+    // 隱藏鎖屏，並移除同步鎖定與震動樣式類別，防止干擾後續頁面
     if (lockScreen) lockScreen.style.display = 'none';
     document.documentElement.classList.remove('is-locked');
+    const lockCircle = document.getElementById('lockCircle');
+    if (lockCircle) lockCircle.classList.remove('shaking');
 
     const timerEl = document.getElementById('timer');
     const labelEl = document.querySelector('.countdown-label');
