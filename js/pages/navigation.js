@@ -7,36 +7,6 @@ if (typeof sfxDadadadada !== 'undefined') {
     sfxDadadadada.loop = true; // 讓首頁音效可以無限循環
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('speakerBtn');
-    
-    if (btn) {
-        btn.addEventListener('click', () => {
-            if (typeof sfxDadadadada !== 'undefined') {
-                if (sfxDadadadada.paused) {
-                    // 如果原本是暫停的，點了就播放
-                    sfxDadadadada.play().catch(e => console.log("音樂被瀏覽器防禦"));
-                    isDadadaPlaying = true;
-                    
-                    // 更換成「播放中（可點擊靜音）」的視覺
-                    btn.innerText = "🔇"; 
-                    btn.style.borderColor = "#ff4da6"; // 變亮粉紅
-                    btn.style.color = "#ff4da6";
-                } else {
-                    // 如果正在播放，點了就暫停
-                    sfxDadadadada.pause();
-                    isDadadaPlaying = false;
-                    
-                    // 更換成「已暫停（可點擊放音）」的視覺
-                    btn.innerText = "🔊"; 
-                    btn.style.borderColor = "#ff8acb"; // 變回淡粉紅
-                    btn.style.color = "#ff8acb";
-                }
-            }
-        });
-    }
-});
-
 function nav(id) {
     const countdown = document.getElementById('countdownBox');
     const modal = document.getElementById('modal');
@@ -58,10 +28,10 @@ function nav(id) {
         }
     }
 
-    // 只要換頁，就讓首頁按鈕的視覺重置回原本的 🔊 狀態
+    // 只要換頁，就讓首頁按鈕的視覺重置回原本的 SVG 播放狀態
     const btn = document.getElementById('speakerBtn');
     if (btn) {
-        btn.innerText = "🔊";
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
         btn.style.borderColor = "#ff8acb";
         btn.style.color = "#ff8acb";
     }
